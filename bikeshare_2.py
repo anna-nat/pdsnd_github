@@ -24,7 +24,6 @@ def get_filters():
     
         else:
             break
-            
     
     # get user input for month 
     months = ('all', 'january', 'february', 'march', 'april', 'may', 'june')
@@ -36,7 +35,7 @@ def get_filters():
     
         else:
             break
-            
+
     # get user input for day of week 
     days = {'all':None, 'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3, 'friday':4, 'saturday':5,'sunday':6}
     while True:
@@ -47,7 +46,6 @@ def get_filters():
     
         else:
             break
-        
     
     print("{}, you chose data for {} for month: {} and day: {}. Let\'s start!".format(name.title(),city.title(),month.title(),day.title()))
     print('-'*40)
@@ -81,7 +79,6 @@ def load_data(city, month, day):
     else:
         df=filter_day.copy()
 
-
     return df if df.shape[0]>0 else all_data
 
 # retrieve filters using the get_filters() function to receive filtered_data variable
@@ -112,7 +109,6 @@ def time_stats(filtered_data, city, month, day):
     day_counts=filtered_data['Day'].value_counts()
     most_common_day=day_counts.idxmax()
     day_name=calendar.day_name[most_common_day]
-    
     
     days = {'all':None, 'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3, 'friday':4, 'saturday':5,'sunday':6}
     day_number=days.get(day) if day in days else None
@@ -151,13 +147,11 @@ def station_stats(filtered_data):
     most_common_start_station=start_station.idxmax()
     print("-> The most popular START STATION is {} with occurrances {}\n".format(most_common_start_station,start_station.iloc[0]))
     
-   
     # display the most common end station and occurrances
     end_station=filtered_data['End Station'].value_counts()
     most_common_end_station=end_station.idxmax()
     print("-> The most popular END STATION is {} with occurrances {}\n".format(most_common_end_station,end_station.iloc[0]))
      
-
     # display the most frequent combination of start station and end station trip and occurrances; create column 'Route'
     filtered_data['Route']=filtered_data['Start Station']+' to '+ filtered_data['End Station']
     route_counts=filtered_data['Route'].value_counts()
@@ -248,7 +242,6 @@ def user_stats(filtered_data,city):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
-    
 #user_stats(filtered_data,city)
 
 def raw_data(filtered_data):
@@ -324,7 +317,6 @@ def main():
         trip_duration_stats(filtered_data)
         user_stats(filtered_data,city)
         raw_data(filtered_data)
-        
         
         if not restart():
             t_f = False
