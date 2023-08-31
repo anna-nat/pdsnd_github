@@ -8,7 +8,7 @@ README.md created 08-31-2023
 Bikeshare Stats
 
 ### Description
-The project presents statistics on bike-sharing systems in selected US cities.
+The project presents stats on bike-sharing systems in selected US cities.
 
 ### Files used
 - chicago.csv
