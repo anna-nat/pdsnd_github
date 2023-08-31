@@ -5,7 +5,7 @@ Project created 08-30-2023
 README.md created 08-31-2023
 
 ### Project Title
-Bikeshare Statistics
+Bikeshare Stats
 
 ### Description
 The project presents statistics on bike-sharing systems in selected US cities.
