@@ -53,9 +53,6 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
-
-
-
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -87,12 +84,9 @@ def load_data(city, month, day):
 
     return df if df.shape[0]>0 else all_data
 
-
 # retrieve filters using the get_filters() function to receive filtered_data variable
 #city,month,day=get_filters()
 #filtered_data=load_data(city,month,day)
-
-
 
 def time_stats(filtered_data, city, month, day):
     """Displays statistics on the most frequent times of travel based on the filtered data."""
@@ -144,7 +138,6 @@ def time_stats(filtered_data, city, month, day):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 #time_stats(filtered_data)
 
 def station_stats(filtered_data):
@@ -179,7 +172,6 @@ def station_stats(filtered_data):
     print('-'*40)
     
 #station_stats(filtered_data)
-
 
 def trip_duration_stats(filtered_data):
     """Displays statistics on the total and average trip duration."""
@@ -216,7 +208,6 @@ def trip_duration_stats(filtered_data):
     
     
 #trip_duration_stats(filtered_data)
-
 
 def user_stats(filtered_data,city):
     """Displays statistics on bikeshare users based on user type, gender and birth year.
@@ -260,9 +251,6 @@ def user_stats(filtered_data,city):
     
 #user_stats(filtered_data,city)
 
-
-
-
 def raw_data(filtered_data):
     """Allows the user to view raw data from dataset.
     Each batch consist of 5 rows of dataset"""
@@ -301,10 +289,7 @@ def raw_data(filtered_data):
 
             count += 1
 
-
 #raw_data(filtered_data)
-
-
 
 def restart():
     """ Prompts the user to decide whether to restart the process or not."""
@@ -326,7 +311,6 @@ def restart():
                 t_f = False
                 return False
             
-
 #%%
 def main():
     """Executes the main workflow of te bikesharing data exploration program: 
