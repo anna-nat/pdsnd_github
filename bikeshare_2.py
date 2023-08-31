@@ -17,44 +17,39 @@ def get_filters():
     # get user input for city 
     cities = ('Chicago', 'new york city', 'washington')
     while True:
-        city = input('Which of these cities do you want to explore : Chicago, New York City or Washington? \n> ').lower()
+        city = input('Select city: Chicago, New York City or Washington? \n> ').lower()
     
         if city not in [c.lower() for c in cities]:
             print('Something went wrong... Please, check your answer.')
     
         else:
             break
-            
     
     # get user input for month 
     months = ('all', 'january', 'february', 'march', 'april', 'may', 'june')
     while True:
-        month = input('Which of these months do you want to explore : January, February, March, April, May, June or all? \n> ').lower()
+        month = input('Select month: January, February, March, April, May, June or all? \n> ').lower()
     
         if month not in [m.lower() for m in months]:
             print('Something went wrong... Please, check your answer.')
     
         else:
             break
-            
+
     # get user input for day of week 
     days = {'all':None, 'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3, 'friday':4, 'saturday':5,'sunday':6}
     while True:
-        day = input('Which of these days do you want to explore : Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or all? \n> ').lower()
+        day = input('Select day: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or all? \n> ').lower()
         
         if day not in [d.lower() for d in days]:
             print('Something went wrong... Please, check your answer.')
     
         else:
             break
-        
     
     print("{}, you chose data for {} for month: {} and day: {}. Let\'s start!".format(name.title(),city.title(),month.title(),day.title()))
     print('-'*40)
     return city, month, day
-
-
-
 
 def load_data(city, month, day):
     """
@@ -84,15 +79,11 @@ def load_data(city, month, day):
     else:
         df=filter_day.copy()
 
-
     return df if df.shape[0]>0 else all_data
-
 
 # retrieve filters using the get_filters() function to receive filtered_data variable
 #city,month,day=get_filters()
 #filtered_data=load_data(city,month,day)
-
-
 
 def time_stats(filtered_data, city, month, day):
     """Displays statistics on the most frequent times of travel based on the filtered data."""
@@ -119,7 +110,6 @@ def time_stats(filtered_data, city, month, day):
     most_common_day=day_counts.idxmax()
     day_name=calendar.day_name[most_common_day]
     
-    
     days = {'all':None, 'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3, 'friday':4, 'saturday':5,'sunday':6}
     day_number=days.get(day) if day in days else None
     
@@ -144,7 +134,6 @@ def time_stats(filtered_data, city, month, day):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 #time_stats(filtered_data)
 
 def station_stats(filtered_data):
@@ -158,13 +147,11 @@ def station_stats(filtered_data):
     most_common_start_station=start_station.idxmax()
     print("-> The most popular START STATION is {} with occurrances {}\n".format(most_common_start_station,start_station.iloc[0]))
     
-   
     # display the most common end station and occurrances
     end_station=filtered_data['End Station'].value_counts()
     most_common_end_station=end_station.idxmax()
     print("-> The most popular END STATION is {} with occurrances {}\n".format(most_common_end_station,end_station.iloc[0]))
      
-
     # display the most frequent combination of start station and end station trip and occurrances; create column 'Route'
     filtered_data['Route']=filtered_data['Start Station']+' to '+ filtered_data['End Station']
     route_counts=filtered_data['Route'].value_counts()
@@ -179,7 +166,6 @@ def station_stats(filtered_data):
     print('-'*40)
     
 #station_stats(filtered_data)
-
 
 def trip_duration_stats(filtered_data):
     """Displays statistics on the total and average trip duration."""
@@ -216,7 +202,6 @@ def trip_duration_stats(filtered_data):
     
     
 #trip_duration_stats(filtered_data)
-
 
 def user_stats(filtered_data,city):
     """Displays statistics on bikeshare users based on user type, gender and birth year.
@@ -257,11 +242,7 @@ def user_stats(filtered_data,city):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
-    
 #user_stats(filtered_data,city)
-
-
-
 
 def raw_data(filtered_data):
     """Allows the user to view raw data from dataset.
@@ -301,10 +282,7 @@ def raw_data(filtered_data):
 
             count += 1
 
-
 #raw_data(filtered_data)
-
-
 
 def restart():
     """ Prompts the user to decide whether to restart the process or not."""
@@ -326,7 +304,6 @@ def restart():
                 t_f = False
                 return False
             
-
 #%%
 def main():
     """Executes the main workflow of te bikesharing data exploration program: 
@@ -340,7 +317,6 @@ def main():
         trip_duration_stats(filtered_data)
         user_stats(filtered_data,city)
         raw_data(filtered_data)
-        
         
         if not restart():
             t_f = False
