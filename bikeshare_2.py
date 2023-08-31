@@ -17,7 +17,7 @@ def get_filters():
     # get user input for city 
     cities = ('Chicago', 'new york city', 'washington')
     while True:
-        city = input('Which of these cities do you want to explore : Chicago, New York City or Washington? \n> ').lower()
+        city = input('Select city: Chicago, New York City or Washington? \n> ').lower()
     
         if city not in [c.lower() for c in cities]:
             print('Something went wrong... Please, check your answer.')
@@ -28,7 +28,7 @@ def get_filters():
     # get user input for month 
     months = ('all', 'january', 'february', 'march', 'april', 'may', 'june')
     while True:
-        month = input('Which of these months do you want to explore : January, February, March, April, May, June or all? \n> ').lower()
+        month = input('Select month: January, February, March, April, May, June or all? \n> ').lower()
     
         if month not in [m.lower() for m in months]:
             print('Something went wrong... Please, check your answer.')
@@ -39,7 +39,7 @@ def get_filters():
     # get user input for day of week 
     days = {'all':None, 'monday':0, 'tuesday':1, 'wednesday':2, 'thursday':3, 'friday':4, 'saturday':5,'sunday':6}
     while True:
-        day = input('Which of these days do you want to explore : Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or all? \n> ').lower()
+        day = input('Select day: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or all? \n> ').lower()
         
         if day not in [d.lower() for d in days]:
             print('Something went wrong... Please, check your answer.')
